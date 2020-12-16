@@ -3,6 +3,10 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "instance_type" {
+  type = string
+}
+
 # Ubuntu Precise 12.04 LTS (x64)
 variable "aws_amis" {
   default = {
