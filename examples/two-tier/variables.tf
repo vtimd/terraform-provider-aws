@@ -5,6 +5,7 @@ variable "aws_region" {
 
 variable "instance_type" {
   type = string
+  default = ""
 }
 
 # Ubuntu Precise 12.04 LTS (x64)
