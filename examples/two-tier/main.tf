@@ -111,7 +111,7 @@ resource "aws_instance" "web" {
     # The connection will use the local SSH agent for authentication.
   }
 
-  instance_type = "t2.micro"
+  instance_type = var.instance_type
 
   # Lookup the correct AMI based on the region
   # we specified
