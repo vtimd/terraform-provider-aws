@@ -1,4 +1,5 @@
 deploy:
+  steps:
     terraformOutput:
       after:
         - kubectl get pods
