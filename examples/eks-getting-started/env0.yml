@@ -6,4 +6,8 @@ deploy:
         - kubectl create namespace vtimd -o yaml --dry-run | kubectl apply -f -
         - kubectl apply -n vtimd -f /tmp/a19e843e-5263-4739-bced-5897a2278e60/examples/eks-getting-started/acme-fitness-yaml/
         - kubectl get services -l service=frontend
-
+        - curl -sL https://tetrate.bintray.com/getistio/download.sh | bash
+        - . ~/.bash_profile
+        - getistio istioctl install --set profile=demo
+        - getistio version
+        - getistio config-validate
