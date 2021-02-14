@@ -2,4 +2,4 @@ deploy:
   steps:
     terraformOutput:
       after:
-#        - kubectl get pods
+        - echo $kubeconfig >> /root/.kube/config
