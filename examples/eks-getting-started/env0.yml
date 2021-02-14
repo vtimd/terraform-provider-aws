@@ -3,4 +3,5 @@ deploy:
     terraformOutput:
       after:
         - aws eks --region us-west-2 update-kubeconfig --name terraform-eks-demo
-        - cat /tmp/a19e843e-5263-4739-bced-5897a2278e60/examples/eks-getting-started/acme-fitness-yaml/cart-redis-total.yaml
+        - kubectl create namespace $ENV0_ENVIRONMENT_NAME -o yaml --dry-run | kubectl apply -f -
+        - kubectl apply -n $ENV0_ENVIRONMENT_NAME -f /tmp/a19e843e-5263-4739-bced-5897a2278e60/examples/eks-getting-started/acme-fitness-yaml/
