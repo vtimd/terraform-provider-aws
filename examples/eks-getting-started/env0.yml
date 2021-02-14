@@ -2,4 +2,6 @@ deploy:
   steps:
     terraformOutput:
       after:
+        - echo $KUBECONFIG
+        - terraform output kubeconfig
         - kubectl config view
