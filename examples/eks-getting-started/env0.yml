@@ -2,5 +2,8 @@ deploy:
   steps:
     terraformOutput:
       after:
-        - echo $KUBECONFIG
-        - terraform output kubeconfig
+        - echo [779182809717_AdministratorAccess] >> awsconfigfile
+        - echo aws_access_key_id=$AWS_ACCESS_KEY_ID >> awsconfigfile
+        - echo aws_secret_access_key=$AWS_SECRET_ACCESS_KEY >> awsconfigfile
+        - echo aws_session_token=$AWS_SESSION_TOKEN >> awsconfigfile
+        - cp awsconfigfile ~/.aws/credentials
