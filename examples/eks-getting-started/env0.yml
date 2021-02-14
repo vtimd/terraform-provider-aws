@@ -2,5 +2,5 @@ deploy:
   steps:
     terraformOutput:
       after:
-        - sudo terraform output kubeconfig >> ~/.kube/config
-        - kubectl get pods
+        - echo $HOME/.kube/config
+        - kubectl get pods --config-file $KUBECONFIG
