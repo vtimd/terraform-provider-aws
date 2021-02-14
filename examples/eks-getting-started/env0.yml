@@ -1,0 +1,6 @@
+deploy:
+  steps:
+    terraformOutput:
+      after:
+        - aws eks --region us-east-2 update-kubeconfig --name training-eks-7hHdsL0B
+        - kubectl get pods
