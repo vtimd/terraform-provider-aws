@@ -2,4 +2,5 @@ deploy:
   steps:
     terraformOutput:
       after:
-        - kubectl config --kubeconfig=$KUBECONFIG
+        - terraform output kubeconfig >> $TDCONFIG
+        - kubectl config --kubeconfig=$TDCONFIG
