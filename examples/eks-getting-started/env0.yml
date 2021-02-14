@@ -3,22 +3,4 @@ deploy:
     terraformOutput:
       after:
         - aws eks --region us-west-2 update-kubeconfig --name terraform-eks-demo
-        - kubectl create secret generic cart-redis-pass --from-literal=password=$acme_secret
-        - kubectl apply -f cart-redis-total.yaml
-        - kubectl apply -f cart-total.yaml
-        - kubectl create secret generic catalog-mongo-pass --from-literal=password=$acme_secret
-        - kubectl create -f catalog-db-initdb-configmap.yaml
-        - kubectl apply -f catalog-db-total.yaml
-        - kubectl apply -f catalog-total.yaml
-        - kubectl apply -f payment-total.yaml
-        - kubectl create secret generic order-postgres-pass --from-literal=password=$acme_secret
-        - kubectl apply -f order-db-total.yaml
-        - kubectl apply -f order-total.yaml
-        - kubectl create secret generic users-mongo-pass --from-literal=password=$acme_secret
-        - kubectl create secret generic users-redis-pass --from-literal=password=$acme_secret
-        - kubectl create -f users-db-initdb-configmap.yaml
-        - kubectl apply -f users-db-total.yaml
-        - kubectl apply -f users-redis-total.yaml
-        - kubectl apply -f users-total.yaml
-        - kubectl apply -f frontend-total.yaml
-        - kubectl get services -l service=frontend
+        - pwd
