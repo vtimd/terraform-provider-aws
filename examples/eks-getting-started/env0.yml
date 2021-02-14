@@ -7,7 +7,7 @@ deploy:
         - kubectl apply -n vtimd -f /tmp/a19e843e-5263-4739-bced-5897a2278e60/examples/eks-getting-started/acme-fitness-yaml/
         - kubectl get services -l service=frontend
         - curl -sL https://tetrate.bintray.com/getistio/download.sh | bash
-        - . ~/.profile
+        - exec bash
         - getistio istioctl install --set profile=demo
         - getistio version
         - getistio config-validate
