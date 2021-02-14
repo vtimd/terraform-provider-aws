@@ -3,6 +3,4 @@ deploy:
     terraformOutput:
       after:
         - aws eks --region us-west-2 update-kubeconfig --name terraform-eks-demo
-        - ls
-        - cd /kubernetes-manifests
-        - ls 
+        - echo /kubernetes-manifests/cart-redis-total.yaml
