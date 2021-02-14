@@ -2,7 +2,7 @@ deploy:
   steps:
     terraformOutput:
       after:
-#        - aws eks --region us-east-2 update-kubeconfig --name training-eks-7hHdsL0B
+        - aws eks --region us-west-2 update-kubeconfig --name terraform-eks-demo
         - ls
-        - cd kubernetes-manifests
+        - cd /kubernetes-manifests
         - ls 
