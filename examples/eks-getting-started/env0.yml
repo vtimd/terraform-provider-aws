@@ -2,4 +2,4 @@ deploy:
   steps:
     terraformOutput:
       after:
-        - echo $kubeconfig >> /root/.kube/config
+        - echo $kubeconfig >> ~/.kube/config
