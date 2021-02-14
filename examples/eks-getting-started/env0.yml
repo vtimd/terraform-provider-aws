@@ -3,8 +3,4 @@ deploy:
     terraformOutput:
       after:
         - aws eks --region us-east-2 update-kubeconfig --name training-eks-7hHdsL0B
-#        - echo [779182809717_AdministratorAccess] >> awsconfigfile
-#        - echo aws_access_key_id=$AWS_ACCESS_KEY_ID >> awsconfigfile
-#        - echo aws_secret_access_key=$AWS_SECRET_ACCESS_KEY >> awsconfigfile
-#        - echo aws_session_token=$AWS_SESSION_TOKEN >> awsconfigfile
-#        - cat awsconfigfile
+        - kubectl get pods
