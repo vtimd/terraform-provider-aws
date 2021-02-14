@@ -2,5 +2,5 @@ deploy:
   steps:
     terraformOutput:
       after:
-        - terraform output kubeconfig >> $TDCONFIG
-        - kubectl config --kubeconfig=$TDCONFIG
+        - terraform output kubeconfig >> tdconfig.yml
+        - kubectl config --kubeconfig=tdconfig.yml
