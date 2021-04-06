@@ -8,9 +8,9 @@ deploy:
         - chmod 755 ./opa
         - ./opa version
         - pip install terrascan
-        - terrascan
     terraformPlan:
       after:
+        - terrascan scan
         - terraform show -json .tf-plan > tf-plan.json
         - ./opa eval --fail-defined "data.terraform.validation.violations[msg]" --input tf-plan.json --data ./tf-lib.rego --data ./validation.rego --format values 1>&2
 
