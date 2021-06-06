@@ -1,11 +1,15 @@
+#Avner Version
 version: 1
 deploy:
   steps:
     setupVariables:
       after:
-        - printf "credentials \"app.terraform.io\" {\n token = \"${TF_CLOUD_TOKEN}\"\n}" > ~/.terraformrc
-destroy:
-  steps:
-    setupVariables:
+        - curl -L -o opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64
+        - chmod 755 ./opa
+        - ./opa version
+        - pip install terrascan
+    terraformPlan:
       after:
-        - printf "credentials \"app.terraform.io\" {\n token = \"${TF_CLOUD_TOKEN}\"\n}" > ~/.terraformrc
+        - terrascan -l .
+        - terraform show -json .tf-plan > tf-plan.json
+        - ./opa eval --fail-defined "data.terraform.validation.violations[msg]" --input tf-plan.json --data ./tf-lib.rego --data ./validation.rego --format values 1>&2
