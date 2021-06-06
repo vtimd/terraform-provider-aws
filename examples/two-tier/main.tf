@@ -5,7 +5,7 @@
 terraform {
   required_version = ">= 0.12"
   backend "s3" {
-    encrypted = true
+    encrypt = true
     bucket = "bucket-tfstate"
     key = "prod/terraform.tfstate"
     region = "us-east-1"
