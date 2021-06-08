@@ -3,6 +3,7 @@
 #}
 
 terraform {
+  version = 1.0
   backend "s3" {
     encrypt = true
     bucket = "bucket-tfstate-td"
