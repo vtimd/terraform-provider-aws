@@ -1,10 +1,9 @@
 terraform {
-  backend "remote" {
-    hostname = "app.terraform.io"
-    organization = "tim-demos"
-    workspaces {
-      name = "terraform-provider-aws"
-    }
+  backend "s3" {
+    encrypt = true
+    bucket = "bucket-tfstate-td"
+    key = "TFCmigration.tfstate"
+    region = "us-east-1"
   }
 }
 
