@@ -1,9 +1,10 @@
 terraform {
-  backend "s3" {
-    encrypt = true
-    bucket = "bucket-tfstate-td"
-    key = "terraform.tfstate"
-    region = "us-east-1"
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "tim-demos"
+    workspaces {
+      name = "terraform-provider-aws"
+    }
   }
 }
 
