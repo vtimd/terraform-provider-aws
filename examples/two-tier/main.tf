@@ -1,14 +1,9 @@
-#terraform {
-#  required_version = ">= 0.12"
-#}
-
 terraform {
-  backend "remote" {
-    hostname = "app.terraform.io"
-    organization = "tim-demos"
-    workspaces {
-      name = "terraform-provider-aws"
-    }
+  backend "s3" {
+    encrypt = true
+    bucket = "bucket-tfstate-td"
+    key = "prod/terraform.tfstate"
+    region = "us-east-1"
   }
 }
 
