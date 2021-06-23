@@ -1,0 +1,9 @@
+version: 1
+deploy:
+  steps:
+    setupVariables:
+      after:
+        - pip install terrascan
+    terraformPlan:
+      after:
+        - terrascan -l .
